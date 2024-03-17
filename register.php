@@ -20,7 +20,7 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" style="color:white" href="login.php#LogCard">Home</a>
+                    <a class="nav-link" style="color:white" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color:white" href="login.php#LogCard">Login</a>
@@ -114,52 +114,97 @@
     </div>
 
     <?php	 
+    // if(isset($_POST['btnRegister'])){		
+    //     //retrieve data from form and save the value to a variable
+    //     //for tbluserprofile
+    //     $fname=$_POST['txtfirstname'];		
+    //     $lname=$_POST['txtlastname'];
+    //     $gender=$_POST['genderSelect'];		
+    //     $birthDate=$_POST['birthdate'];
+    //     $weight=$_POST['weight'];		
+    //     $height=$_POST['height'];
+    //     $userType=$_POST['userType'];
+        
+    //     //for tbluseraccount
+    //     $email=$_POST['txtemail'];		
+    //     $uname=$_POST['txtusername'];
+    //     $pword=$_POST['txtpassword'];
+        
+    //     //Check tbluseraccount if username or email is already existing
+    //     $sql2 ="SELECT * FROM tbluseraccount WHERE username='".$uname."' OR emailadd='".$email."'";
+    //     $result = mysqli_query($connection,$sql2);
+    //     $row = mysqli_num_rows($result);
+    //     if($row == 0){
+    //         $sql ="INSERT INTO tbluseraccount(emailadd,username,password,usertype) VALUES('".$email."','".$uname."','".password_hash($pword, PASSWORD_DEFAULT)."','$userType')";
+    //         mysqli_query($connection,$sql);
+    //         //save data to tbluserprofile	
+    //         $sql1 ="INSERT INTO tbluserprofile(firstname,lastname,birthdate,gender,height,weight) VALUES('".$fname."','".$lname."','$birthDate','".$gender."','$height','$weight')";
+    //         mysqli_query($connection,$sql1);
+    //         echo "<script>showPopupMessage1('You are now registered.');</script>";
+    //         exit();
+    //     }else{
+    //         $row1 = mysqli_fetch_assoc($result);
+    //         if ($row1['username'] == $uname) {
+    //             echo "<script>showMessage('Username is already taken.');</script>";
+    //         }
+    
+    //         if ($row1['emailadd'] == $email) {
+    //             echo "<script>showMessage('Email already exists.');</script>";
+    //         }
+    //         exit();
+    //     }
+    // }   
     if(isset($_POST['btnRegister'])){		
-        //retrieve data from form and save the value to a variable
-        //for tbluserprofile
-        $fname=$_POST['txtfirstname'];		
-        $lname=$_POST['txtlastname'];
-        $gender=$_POST['genderSelect'];		
-        $birthDate=$_POST['birthdate'];
-        $weight=$_POST['weight'];		
-        $height=$_POST['height'];
-        $userType=$_POST['userType'];
+        // Retrieve data from form and save the value to a variable
+        // For tbluserprofile
+        $fname = $_POST['txtfirstname'];		
+        $lname = $_POST['txtlastname'];
+        $gender = $_POST['genderSelect'];		
+        $birthDate = $_POST['birthdate'];
+        $weight = $_POST['weight'];		
+        $height = $_POST['height'];
+        $userType = $_POST['userType'];
         
-        //for tbluseraccount
-        $email=$_POST['txtemail'];		
-        $uname=$_POST['txtusername'];
-        $pword=$_POST['txtpassword'];
+        // For tbluseraccount
+        $email = $_POST['txtemail'];		
+        $uname = $_POST['txtusername'];
+        $pword = $_POST['txtpassword'];
         
-        //Check tbluseraccount if username is already existing. Save info if false. Prompt msg if true.
-        $sql2 ="SELECT * FROM tbluseraccount WHERE userName='".$uname."' OR email='".$email."' OR userPassword='".$pword."'";
-        $result = mysqli_query($connection,$sql2);
+        // Check tbluseraccount if username or email is already existing
+        $sql2 = "SELECT * FROM tbluseraccount WHERE username='".$uname."' OR emailadd='".$email."'";
+        $result = mysqli_query($connection, $sql2);
         $row = mysqli_num_rows($result);
-        $hashed_password = password_hash($pword, PASSWORD_DEFAULT);   
+        
         if($row == 0){
-            $sql ="INSERT INTO tbluseraccount(email,userName,userPassword) VALUES('".$email."','".$uname."','".$hashed_password."')";
-            mysqli_query($connection,$sql);
-            //save data to tbluserprofile	
-            $sql1 ="INSERT INTO tbluserprofile(firstName,lastName,birthDate,gender,height,weight,userType) VALUES('".$fname."','".$lname."','$birthDate','".$gender."','$height','$weight','$userType')";
-            mysqli_query($connection,$sql1);
-            echo "<script>showPopupMessage1('You are now registered.');</script>";
-        }else{
+            // Check if the password is unique
+            $sql3 = "SELECT * FROM tbluseraccount WHERE password='".password_hash($pword, PASSWORD_DEFAULT)."'";
+            $result2 = mysqli_query($connection, $sql3);
+            $row2 = mysqli_num_rows($result2);
+            
+            if($row2 == 0){
+                $sql = "INSERT INTO tbluseraccount(emailadd, username, password, usertype) VALUES('".$email."','".$uname."','".password_hash($pword, PASSWORD_DEFAULT)."','$userType')";
+                mysqli_query($connection, $sql);
+                // Save data to tbluserprofile	
+                $sql1 = "INSERT INTO tbluserprofile(firstname, lastname, birthdate, gender, height, weight) VALUES('".$fname."','".$lname."','$birthDate','".$gender."','$height','$weight')";
+                mysqli_query($connection, $sql1);
+                echo "<script>showPopupMessage1('You are now registered.');</script>";
+                exit();
+            } else {
+                echo "<script>showMessage('Password is already taken.');</script>";
+                exit();
+            }
+        } else {
             $row1 = mysqli_fetch_assoc($result);
-            if ($row1['userName'] == $uname) {
+            if ($row1['username'] == $uname) {
                 echo "<script>showMessage('Username is already taken.');</script>";
             }
-
-            if (password_verify($pword, $row1['userPassword'])) {
-                echo "<script>showMessage('Password is already taken.');</script>";
-            }
-
-            if ($row1['email'] == $email) {
+    
+            if ($row1['emailadd'] == $email) {
                 echo "<script>showMessage('Email already exists.');</script>";
             }
-            // echo "<script language='javascript'>
-            //             alert('Username already existing');
-            //     </script>";
+            exit();
         }
-    }
+    }    
     ?>
     
     <footer>

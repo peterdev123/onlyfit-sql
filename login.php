@@ -72,37 +72,59 @@
   </footer>
 
   <?php
-    session_start();
-    $login = false;
+    // session_start();
+    // $login = false;
+
+    // if(isset($_POST['btnLogin'])){
+    //   $username = $_POST['txtusername'];
+    //   $password = $_POST['txtpassword'];
+
+    //   $sql = "SELECT password FROM tbluseraccount WHERE username = '$username'";
+    //   $result = mysqli_query($connection, $sql);
+    //   $row = mysqli_num_rows($result);
+
+    //   if (!$row) {
+    //     echo "<script>showMessage('Incorrect username.');</script>";
+    //     exit();
+    //   }
+
+    //   $row = mysqli_fetch_assoc($result);
+    //   $hashedPasswordFromDatabase = $row['password'];
+
+    //   // echo password_verify($password, $hashedPasswordFromDatabase) ? 'Password is correct' : 'Password is incorrect';
+
+    //   // if (!password_verify($password, $hashedPasswordFromDatabase)) {
+    //   //   echo "<script>showMessage('Incorrect password.');</script>";
+    //   //   exit();
+    //   // }
+
+    //   // echo "<script>showPopupMessage('You are logged in.');</script>";
+
+    //   $_SESSION['username'] = $username;
+    //   $_SESSION['loggedin'] = true;
+    //   // header("Location: welcom.php");
+    //   // exit();
+    // }
 
     if(isset($_POST['btnLogin'])){
       $username = $_POST['txtusername'];
       $password = $_POST['txtpassword'];
-
-      $sql = "SELECT * FROM tbluseraccount WHERE userName = '$username'";
-      $result = mysqli_query($connection, $sql);
-      $row = mysqli_num_rows($result);
-
-      if (!$row) {
-        echo "<script>showMessage('Incorrect username');</script>";
-        exit();
+  
+      $sqlQuery = mysqli_query($connection,
+          "SELECT password FROM tbluseraccount WHERE username='".$username."'");
+      $row = mysqli_num_rows($sqlQuery);
+      if($row) {
+          $row = mysqli_fetch_assoc($sqlQuery);
+          if(password_verify($password, $row['password'])) {
+              echo "<script>
+              window.location.href = 'welcom.php'</script>";
+              exit();
+          }else{
+              echo "<script>showMessage('Incorrect password.');</script>";
+          }
+      }else{
+          echo "<script>showMessage('Incorrect username.');</script>";
       }
-
-      $row = mysqli_fetch_assoc($result);
-      $hashedPasswordFromDatabase = $row['userPassword'];
-
-      if ($password != $hashedPasswordFromDatabase) {
-        echo "<script>showMessage('Incorrect password.');</script>";
-        exit();
-      }
-
-      echo "<script>showPopupMessage('You are logged in.');</script>";
-
-      $_SESSION['username'] = $username;
-      $_SESSION['loggedin'] = true;
-      // sleep(3);
-      // header("Location: index.php");
-      exit();
     }
   ?>
 
