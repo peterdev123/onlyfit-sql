@@ -1,10 +1,10 @@
 .card {
-    color: #59754f;
+    color: #031629;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     margin: 8px 4px; 
-    /* border: 2px solid #59754f;  */
+    /* border: 2px solid #031629;  */
     border-radius: 10px; 
-    background: #ffffff;
+    background: #ffa500;
     padding: 15px; 
     width: 100%;
 }
@@ -15,7 +15,7 @@
 
 a:hover {
     font-weight: 1000;
-    color: #59754f;
+    color: #031629;
 }
 
 .form-control {
@@ -35,38 +35,39 @@ a:hover {
 }
 
 ::placeholder {
-    color: #59754f;
+    color: #031629;
 }
 
 .btnPrimaryA {
-    background-color: #59754f;
-    border: 2px solid #ffffff;
+    background-color: #031629;
+    border: 2px solid #ffa500;
     border-radius: 20px;
     padding-left: 45%;
     padding-right: 44%;
     font-size: 30px;
+    color: #ffa500;
 }
 
 body {
     font-family: 'Montserrat';
     margin: 0;
     padding: 0;
-    background-color: #59754f;
-    color: #ffffff;
+    background-color: #031629;
+    color: #ffa500;
 }
 
 a {
-    color: #59754f;
+    color: #031629;
 }
 
 a:hover {
     font-weight: 1000;
-    color: #59754f;
+    color: #031629;
 }
 
 header {
-    background-color: #ffffff; 
-    color: #59754f;
+    background-color: #ffa500; 
+    color: #031629;
     padding: 20px;
     text-align: center;
     font-size: 30px;
@@ -75,8 +76,8 @@ header {
 }
 
 footer {
-    background-color: #ffffff; 
-    color: #59754f;
+    background-color: #ffa500; 
+    color: #031629;
     padding: 20px;
     text-align: center;
     font-size: 16px;
@@ -86,3 +87,11 @@ footer p {
     margin: 5px 0;
 }
 
+.inputErr {
+    color: #BA423C; 
+    background-color: #ffa500; 
+    padding-left: 35%; 
+    padding-right: 35%; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}

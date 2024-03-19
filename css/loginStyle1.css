@@ -4,22 +4,29 @@
   }
 
 .card {
-    color: #59754f;;
-    box-shadow: #59754f;;
+    color: #031620;;
+    box-shadow: #031620;;
     margin: 8px 4px; 
     border-radius: 10px; 
-    background: #ffffff;
+    background: #ffa500;
     padding: 15px; 
     width: 100%;
     font-size: 25px;
 }
 
 .btnPrimaryA {
-    background-color: #59754f;;
-    border: 2px solid #ffffff;
+    background-color: #031620;;
+    border: 2px solid #ffa500;
     border-radius: 20px;
     padding-left: 45%;
     padding-right: 44%;
+    color: #ffa500;
+}
+
+.inputErr {
+    color: #BA423C; 
+    background-color: #ffa500; 
+    padding: 10px;
 }
 
 .form-control {
@@ -39,20 +46,20 @@
 }
 
 a {
-    color: #59754f;;
+    color: #031620;;
 }
 
 a:hover {
     font-weight: 1000;
-    color: #59754f;;
+    color: #031620;;
 }
 
 body {
     font-family: 'Montserrat';
     margin: 0;
     padding: 0;
-    background-color: #59754f;
-    color: #ffffff;
+    background-color: #031620;
+    color: #ffa500;
 }
 
 .nav-link {
@@ -60,8 +67,8 @@ body {
 }
 
 header {
-    background-color: #ffffff; 
-    color: #59754f;;
+    background-color: #ffa500; 
+    color: #031620;;
     padding: 20px;
     text-align: center;
     font-size: 30px;
@@ -70,8 +77,8 @@ header {
 }
 
 footer {
-    background-color: #ffffff; 
-    color: #59754f;;
+    background-color: #ffa500; 
+    color: #031620;;
     padding: 20px;
     text-align: center;
     font-size: 16px;

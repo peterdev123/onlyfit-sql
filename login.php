@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/loginStyle1.css" rel="stylesheet">
     <link href="css/loginMessage.css" rel="stylesheet">
-    <script src="js/message.js"></script>
+    <script src="js/script.js"></script>
     <title>OnlyFit</title>
 </head>
 <body>
@@ -41,7 +41,7 @@
           <div class="col-md-6">
               <div class="card p-4" id="LogCard">
                   <h1 class="mb-4 text-center" style="font-size: 40px;">Log in</h1>
-                  <p id="inputError" style="color: #BA423C; background-color: #FFFFFF; padding: 10px;"></p>
+                  <p id="inputError" class="inputErr"></p>
                   <form method="post">
                       <div class="mb-3">
                           <label for="username" class="form-label">Username:</label>

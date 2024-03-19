@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     /* background: linear-gradient(135deg, #667eea 0%, #5b4670 100%); */
-    background-color: #59754f;
-    color: #ffffff;
+    background-color: #031620;
+    color: #ffa500;
 }
 .navbar-brand img {
     height: 30px; 
@@ -24,13 +24,13 @@ body {
 
 a:hover {
     font-weight: 1000;
-    color: #59754f;
+    color: #031620;
 }
 
 
 header {
-    background-color: #ffffff;
-    color: #59754f;
+    background-color: #ffa500;
+    color: #031620;
     padding: 20px;
     text-align: center;
     font-size: 30px;
@@ -39,8 +39,8 @@ header {
 }
 
 footer {
-    background-color: #ffffff;
-    color: #59754f;
+    background-color: #ffa500;
+    color: #031620;
     padding: 20px;
     text-align: center;
     font-size: 16px;
