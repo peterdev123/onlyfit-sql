@@ -27,10 +27,10 @@
               <a class="nav-link" href="register.php#registrationForm">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="aboutUs.html">About Us</a>
+              <a class="nav-link" href="aboutUs.php">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contactUs.html">Contact Us</a>
+              <a class="nav-link" href="contactUs.php">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -117,7 +117,7 @@
           $row = mysqli_fetch_assoc($sqlQuery);
           if(password_verify($password, $row['password'])) {
               echo "<script>
-              window.location.href = 'welcom.php'</script>";
+              window.location.href = 'dashboard.php'</script>";
               exit();
           }else{
               echo "<script>showMessage('Incorrect password.');</script>";

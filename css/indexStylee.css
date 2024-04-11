@@ -50,3 +50,20 @@ footer p {
     margin: 5px 0;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffa500;
+    color: #031620;
+}
+
+th, td {
+    border: 1px solid #031620;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #ffa500;
+}
+
