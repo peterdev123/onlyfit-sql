@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
    
-    <link href="css/contactUsStyle.css" rel="stylesheet">
+    <link href="css/contactUsStylee.css" rel="stylesheet">
     <script src="js/script.js"></script>
     <title>OnlyFit</title>
 </head>
@@ -27,10 +27,10 @@
               <a class="nav-link" href="register.php#registrationForm">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="aboutUs.php">About Us</a>
+              <a class="nav-link" href="login.php#logInForm">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contactUs.php">Contact Us</a>
+              <a class="nav-link" href="aboutUs.php">About Us</a>
             </li>
           </ul>
         </div>
@@ -39,7 +39,7 @@
     <div class="otherbody">
 <div class = "container2">
   <form action="#" class="form">
-    <h2>CONTACT US</h2>
+    <h2 style="font-weight: bold;">CONTACT US</h2>
     <div class="input">
       <input type="text" autocomplete="off" name = "name" required>
       <label for="name">Name</label>
